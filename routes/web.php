@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::get('/admin/ticket', [TicketController::class, 'index'])->name('ticket.admin');
 Route::post('/admin/ticket', [TicketController::class, 'store']);
 Route::get('/admin/ticketclass', [TicketClassController::class, 'index'])->name('ticketclass.admin');
+Route::post('/admin/ticketclass', [TicketClassController::class, 'store']);
