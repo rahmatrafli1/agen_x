@@ -40,4 +40,36 @@ class TicketController extends Controller
 
         return redirect('admin/ticket')->with(['success' => 'Data Ticket has been added!']);
     }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            'ticket_name' => 'required|max:255',
+            'ticket_price' => 'required|numeric',
+            'ticket_class_id' => 'required',
+            'status' => 'required'
+        ], [
+            'ticket_name.required' => 'Ticket Name must required!',
+            'ticket_name.max' => 'Ticket Name maximum 255 characters!',
+            'ticket_price.required' => 'Ticket Price must required!',
+            'ticket_price.numeric' => 'Ticket Price must numeric!',
+            'ticket_class_id.required' => 'Ticket Class must required!',
+            'status.required' => 'Status must required!',
+        ]);
+
+        Ticket::where('id', $id)->update([
+            'ticket_name' => $request->ticket_name,
+            'ticket_price' => $request->ticket_price,
+            'ticket_class_id' => $request->ticket_class_id,
+            'status' => $request->status
+        ]);
+
+        return redirect('admin/ticket')->with(['success' => 'Data Ticket has been updated!']);
+    }
+
+    public function destroy($id)
+    {
+        Ticket::where('id', $id)->delete();
+        return redirect('admin/ticket')->with(['success' => 'Data Ticket has been deleted!']);
+    }
 }

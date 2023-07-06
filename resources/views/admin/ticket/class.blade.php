@@ -39,7 +39,13 @@
                             <td>{{ $i++ }}</td>
                             <td>{{ $tc->class }}</td>
                             <td>
-                                Edit Delete
+                                <a href="#" class="badge badge-warning" data-toggle="modal"
+                                    data-target="exampleModal{{ $tc->id }}">
+                                    Edit
+                                </a>
+                                <a href="#" class="badge badge-danger">
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -49,4 +55,5 @@
     </main>
 
     @include('admin.ticket.modal_ticket_class.create')
+    @include('admin.ticket.modal_ticket_class.edit')
 @endsection

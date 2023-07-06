@@ -3,7 +3,7 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/ticket') ? 'active' : '' }}"
-                    href="{{ route('ticket.admin') }}"><span data-feather="home"></span>
+                    href="{{ route('ticket.admin') }}"><span data-feather="book"></span>
                     Ticket
                 </a>
                 <a class="nav-link {{ request()->is('admin/ticketclass') ? 'active' : '' }}"

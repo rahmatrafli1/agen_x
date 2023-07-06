@@ -41,7 +41,14 @@
                             <td>{{ $tkt->ticket_class->class }}</td>
                             <td>{{ $tkt->status == 1 ? 'Available' : 'Sold Out' }}</td>
                             <td>
-                                Edit Delete
+                                <a href="#" class="badge badge-warning" data-toggle="modal"
+                                    data-target="#editTicketModal{{ $tkt->id }}">
+                                    Edit
+                                </a>
+                                <a href="#" class="badge badge-danger" data-toggle="modal"
+                                    data-target="#hapusTicketModal{{ $tkt->id }}">
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -52,4 +59,6 @@
     </main>
 
     @include('admin.ticket.modal_ticket.create')
+    @include('admin.ticket.modal_ticket.edit')
+    @include('admin.ticket.modal_ticket.delete')
 @endsection
